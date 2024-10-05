@@ -88,12 +88,18 @@ a {
   transition: background-color 0.3s, transform 0.3s; /* Smooth transitions on hover */
   margin-left: 10px;
 }
+a.delete{
+    background-color:#ff4400;
+}
 
 a:hover {
   background-color: #0056b3; /* Darker shade on hover */
   transform: scale(1.05); /* Slightly enlarge on hover for emphasis */
 }
-
+a.delete:hover{
+    background-color: #a12c01; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover for emphasis */
+}
 @media (max-width: 768px) {
   .post {
     width: calc(50% - 30px); /* Two cards in a row on smaller screens */
