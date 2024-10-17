@@ -40,29 +40,38 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //CHALLENGE 1: GET All posts
-app.get('/posts',(req,res)=>{
+app.get("/posts", (req, res) => {
   res.json(posts);
-})
+});
 //CHALLENGE 2: GET a specific post by id
-app.get('/posts/:id',(req,res)=>{
-  const post=posts.find((post)=>post.id==parseInt(req.params.id))
-  if(!post) return res.status(404).json({message:"post not found"})
+app.get("/posts/:id", (req, res) => {
+  const post = posts.find((post) => post.id == parseInt(req.params.id));
+  if (!post) return res.status(404).json({ message: "post not found" });
   res.json(post);
-})
+});
 //CHALLENGE 3: POST a new post
-app.post("/posts",(req,res)=>{
-  const post={
-    id:posts.length + 1,
-    title:req.body.title,
-    content:req.body.content,
-    author:req.body.author,
-    date:new Date(),
-  }
+app.post("/posts", (req, res) => {
+  const post = {
+    id: posts.length + 1,
+    title: req.body.title,
+    content: req.body.content,
+    author: req.body.author,
+    date: new Date(),
+  };
   posts.push(post);
   res.json(post);
-} )
+});
 //CHALLENGE 4: PATCH a post when you just want to update one parameter
-
+app.patch("/posts/:id", (req, res) => {
+  const post = posts.find((post) => post.id == parseInt(req.params.id));
+  if (!post) return res.status(404).json({ message: "post not found" });
+  
+  if (req.body.title) post.title=req.body.title;
+  if (req.body.content) post.content=req.body.console;
+  if (req.body.author) post.author=req.body.author;
+  
+  res.json(post);
+});
 //CHALLENGE 5: DELETE a specific post by providing the post id.
 
 app.listen(port, () => {
