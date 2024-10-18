@@ -57,4 +57,4 @@ The frontend will run on http://localhost:3000.
 
 ### screenshots:
 ![main page](./public/images/full-main.png)
-![new post page](./public/images/new-post.png).
+![new post page](./public/images/new-post.png)
