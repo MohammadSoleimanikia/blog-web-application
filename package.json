@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "vercel-build": "echo 'No build step required'"
+    "vercel-build": "echo 'No build step required'",
+    "vercel-dev": "vercel dev"
   },
   "keywords": [],
   "author": "",
